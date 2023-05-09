@@ -126,7 +126,6 @@
   % \end{textblock*}
   % A brief into to Tekton
 \end{stripedframe}
-
 \note{
   Tekton is an open-source framework for creating continuous delivery systems (aka CI/CD).
   Tekton is built on top of Kubernetes, and it brings all the cloud-native
@@ -198,11 +197,13 @@
     \item Start a pipeline execution
   \end{itemize}
   }%
-  {0.30}
+  {0.43}
   \frametitle{Launching Pipelines}
 \end{lgrayframerpic}
 
-\begin{2columnsframe}{Securing Pipelines}%
+\begin{lpicwhiterblack}[tekton-chains.png]{%
+  Tekton Security Features
+  }%
   {%
   Tekton Chains
   \begin{itemize}
@@ -211,88 +212,183 @@
     \item Sigstore integration
   \end{itemize}
   ~\\
-  ~\\
-  ~\\
   Tekton Pipelines
   \begin{itemize}
     \item Trusted Resources (alpha)
-    \item Non-falsifiable Provenance (alpha)
+    \item Non-falsifiable Provenance \\(alpha)
     \item Hermetic Builds (alpha)
-    \item Working towards SLSA lvl3
   \end{itemize}
-  }{%
-  Some chains diagram here
-  }
-\end{2columnsframe}
+  }%
+  {0.60}
+  \frametitle{Securing Pipelines}
+\end{lpicwhiterblack}
 
 \section[What's New]{What's New in Tekton}
 \begin{sectionwithpic}[cat-walking-on-stairs.jpg]{Public domain photo, CC0}
 \end{sectionwithpic}
 
-\begin{blackframe}
-  \frametitle{New pipeline features}
+\begin{2columnsframe}{What's new in Pipeline}%
+  {%
+  New Features:
   \begin{itemize}
-    \item Two LTS releases v0.44 and v0.47
-    \item Remote resolution to beta, config source
+    \item Remote resolution (beta),\\config source\\
+    \item Artifact Hub support
+    \item Trusted Resources (alpha) \\~\\~\\~
+    \item Larger Results via sidecar log (alpha)
+    \item Env variables in pod template
+    \item Explicit params combinations in matrix
+    \item Distributed tracing for pipelines
+  \end{itemize}
+  }{%
+  Releases \& Promotions:
+  \begin{itemize}
+    \item Two LTS v0.44 and v0.47
     \item Propagation to beta
     \item Custom Task to beta
-    \item Array and Object Params and Results to beta
-    \item Trusted Resources as alpha
-    \item Larger Results via sidecar log as alpha
-    \item Artifact Hub support
-    \item Env variables in pod template
-    \item Distributed tracing for pipelines
-    \item Pipeline v1 API (v1beta1 stored by default)
-    \item Explicit params combinations in matrix
+    \item Array and Object Params\\and Results to beta
   \end{itemize}
-\end{blackframe}
-
-\begin{blackframe}
-  \frametitle{Removed pipeline features}
+  ~\\
+  \tiny~\\
+  \normalsize
+  Documentation:
   \begin{itemize}
-    \item Pipeline Resources
-    \item Embedded Status
+    \item Refreshed docs \href{https://tekton.dev/docs/}{tekton.dev/docs/}
+    \item Tekton blog \href{https://tekton.dev/blog/}{tekton.dev/blog/}
   \end{itemize}
-\end{blackframe}
+  }
+\end{2columnsframe}
 
-\begin{blackframe}
-  \frametitle{Non-pipeline features}
+\begin{lpicrblack}[aaron-burden-2xhOYKK-jAM-unsplash.jpg]{%
+  Photo by \href{https://unsplash.com/@aaronburden}{\underline{Aaron Burden}}, CC0
+  }%
+  {%
   \begin{itemize}
-    \item Scheduled Runs
-    \item Chains v1.0
+    \item v1 for Task and TaskRun
+    \item v1 Pipeline and PipelineRun
+    \item v1beta1 is stored\\switch before next LTS
+    \item v1beta1 for CustomRun (was Run)\\~
+    \item Removed PipelineResources
+    \item Removed Embedded Status
   \end{itemize}
-\end{blackframe}
+  }%
+  {0.40}
+  \frametitle{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~API Changes}
+\end{lpicrblack}
+
+\begin{2columnsframe}{What's new in Tekton}%
+  {%
+  Chains:
+  \begin{itemize}
+    \item Pipeline level attestations
+    \item SLSA v1 compliance in attestations
+  \end{itemize}
+  ~\\
+  ~\\
+  ~\\
+  Triggers:
+  \begin{itemize}
+    \item Enhanced GitHub interceptor
+    \item Pipeline v1 Resources
+    \item Support for CloudEvents
+  \end{itemize}
+  }{%
+  Dashboard:
+  \begin{itemize}
+    \item Performance Improvements
+    \item Pipeline v1 Resources
+    \item Edit resource UI
+  \end{itemize}
+  ~\\
+  \tiny~\\
+  \normalsize
+  Results:
+  \begin{itemize}
+    \item Log storage
+    \item Watcher high availability
+    \item Record Summaries
+    \item REST proxy
+  \end{itemize}
+  }
+\end{2columnsframe}
 
 \section[Roadmap]{Roadmap \faRobot\faCat}
 \begin{sectionwithpicrx}[julie_falk_flickr_22258190324_6a583208ae_k.png]{Photo by \href{https://www.flickr.com/photos/piper/}{\underline{Julie Falk}}, CC BY-NC 2.0}
 \end{sectionwithpicrx}
 
 \begin{blackframe}
-  \frametitle{What's coming in Pipeline}
+  \frametitle{Releases}
+  Releases:
   \begin{itemize}
     \item Pipeline v1.0
+    \item Chains v1.0
     \item Planned LTS patch releases
-    \item Artifacts
-    \item Non falsifiable provenance
-    \item Multiple deployments per cluster
-    \item Better tracing
-    \item Conformance policy
-    \item Dedicated events controller, CDEvents
+    \item SLSA release infrastructure\\~
+    \item Tekton Supply Chain Security:\\
+          Next at the theatre \href{https://sched.co/1N0UL}{sched.co/1N0UL}
   \end{itemize}
+  \begin{textblock*}{0.35\paperwidth}(0.53\paperwidth,0.22\paperheight)
+    \includegraphics[width=0.35\paperwidth]{img/tekton-chains-slsa.png}
+  \end{textblock*}
 \end{blackframe}
+
+\begin{lpicrblack}[geraldine-lewa-N_Z91Evs_oM-unsplash.jpg]{%
+  Photo by \href{https://unsplash.com/@geraldine_lewa}{\underline{Geraldine Lewa}}, CC0
+  }%
+  {%
+  \begin{itemize}
+    \item Improved Data API
+    \item Native support for upload/download
+    \item Trust data across Tasks
+    \item Improved Provenance generation
+  \end{itemize}
+  }%
+  {0.35}
+  \frametitle{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Artifacts}
+\end{lpicrblack}
 
 \begin{blackframe}
-  \frametitle{What's coming}
+  \frametitle{Features}
   \begin{itemize}
-    \item Chains v1.0
-    \item Refreshed catalog
+    \item Beta and stable for several features
+    \item Non falsifiable provenance
+    \item Conformance policy\\~
+    \item Multiple deployments per cluster
+    \item Dedicated events controller, CDEvents
+    \item Improved tracing\\~
     \item Scheduled Runs
     \item Concurrency controller
-    \item Tekton Results
   \end{itemize}
 \end{blackframe}
 
-\begin{2columnsframe}{Roadmap \& Vision}%
+\begin{lpicrblack}[ciprian-boiciuc-CXdeJI3bD2U-unsplash.jpg]{%
+  Photo by \href{https://unsplash.com/@ciprian}{\underline{Ciprian Boiciuc}}, CC0
+  }%
+  {%
+  \begin{itemize}
+    \item New catalog org: \href{https://github.com/tektoncd-catalog}{github.com/tektoncd-catalog}
+    \item One repo per group of resources
+    \item Git based versioning
+    \item Improved testing and support
+    \item Community managed catalogs
+  \end{itemize}
+  }%
+  {0.35}
+  \frametitle{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Catalog}
+\end{lpicrblack}
+
+\begin{lgrayframerpic}[tekton-results.png]{Public domain photo, CC0}%
+  {%
+  \begin{itemize}
+    \item More integrations
+    \item New logo!
+    \item Talk at 3:30pm:\\sched.co/1JpAX
+  \end{itemize}
+  }%
+  {0.36}
+  \frametitle{Tekton Results}
+\end{lgrayframerpic}
+
+\begin{2columnsframe}{Mission \& Vision}%
   {%
   Mission:
   \begin{itemize}
@@ -304,10 +400,10 @@
   ~\\
   \tiny~\\
   \normalsize
-  Vision:
+  Mission:
   \begin{itemize}
-    \item Tekton API conformance across\\
-          as many CI/CD platforms as possible
+    \item SLSA compliance through Tekton \\
+          Tekton releases to be SLSA compliant
   \end{itemize}
   }{%
   Vision:
@@ -320,13 +416,10 @@
   ~\\
   \tiny~\\
   \normalsize
-  Roadmap 2023:
+  Vision:
   \begin{itemize}
-    \item Tekton V1 API
-    \item Security Features
-    \item Observability
-    \item Workflows
-    \item User stories, Documentation
+    \item Tekton API conformance across\\
+          as many CI/CD platforms as possible
   \end{itemize}
   }
 \end{2columnsframe}

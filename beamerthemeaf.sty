@@ -388,6 +388,37 @@
   \end{frame}
 }
 
+\newenvironment{lpicwhiterblack}[4][]
+{
+  \setbeamercolor{background canvas}{bg=myblack}
+  \setbeamercolor*{frametitle}{fg=myblack}
+  \settextcolour{white}
+  \setbeamertemplate{background}{
+    \includegraphics[height=\paperheight]{img/#1}
+  }
+  \setwhitelogofootline{notext}
+  \begin{frame}
+    \begin{textblock*}{0.4\paperwidth}(0.005\paperwidth,0.97\paperheight)
+      \begin{beamercolorbox}[wd=0.4\paperwidth]{photolicense}
+        \usebeamerfont{photolicense}#2%
+      \end{beamercolorbox}%
+      \vfill
+    \end{textblock*}
+    \ifstrempty{#4}{
+      \leftskip=0.55\paperwidth
+      #3
+    }{
+      \begin{columns}
+        \column{#4\paperwidth}
+        \column{0.48\paperwidth}
+        #3
+      \end{columns}
+    }
+}
+{
+  \end{frame}
+}
+
 % #1 Speaker Pic
 % #2 Speaker name
 % #3 Speaker name subtitle - e.g. social
